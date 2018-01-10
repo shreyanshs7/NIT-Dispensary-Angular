@@ -1,0 +1,65 @@
+<br>
+<br>
+
+
+<div class="container" *ngIf="show">
+  
+    <input class="form-control" type="text" placeholder="Search Appointment" [(ngModel)]="appSearch" >
+
+    <br>
+
+    <table class="table table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Medical Issue</th>
+            <th scope="col">Issue Type</th>
+            <th scope="col">Treated</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let app of appointments | appPipe: appSearch | paginate: { itemsPerPage: 10, currentPage: p }; let i=index ">
+            <td>{{ i+1 }}</td>
+            <td>{{ app.name }}</td>
+            <td>{{ app.medical_issue }}</td>
+            <td> {{ app.issue_type }} </td>
+            <div *ngIf="app.treated; else no">
+                <td>Yes</td>
+            </div>
+            <ng-template #no> <td>No</td> </ng-template>
+            <td><button type="button" class="btn btn-info" (click)="getAppDetails(app.id)" >Info</button></td>
+          </tr>
+        </tbody>
+       
+      </table>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
+<div class="container">
+    <div *ngIf="!show">
+            <div class="jumbotron" style="padding-left:25%;padding-right:25%;">
+                    <h3 class="text-center">{{ appDetail.name }}</h3>
+                    <hr>
+                    <br>
+                    <div >
+                        <b>Issue Type :</b> {{ appDetail.issue_type }}
+                        <span class="float-right"><b>Medical Issue :</b> {{ appDetail.medical_issue }}</span> 
+                        <br><br>
+                        <b>Date :</b> {{ appDetail.date }}
+                        <span class="float-right"><b>Time :</b>{{ appDetail.time }}</span> 
+                    </div>
+
+                
+            </div>
+            <button type="button" class="btn btn-info text-left" (click)="showAppointments()" >Back</button>
+            <button type="button" class="btn btn-warning float-right" (click)="markTreated(appDetail.id)" >Mark as treated</button>
+    </div>
+
+<br>
+<div class="alert alert-success alert-dismissible fade show text-center" role="alert" *ngIf="alertShow" data-auto-dismiss="2000">
+        <h4>{{ alertMessage.message }}</h4>
+      </div>
+</div>
+
+

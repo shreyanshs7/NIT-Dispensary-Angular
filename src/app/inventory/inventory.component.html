@@ -1,0 +1,19 @@
+<br><br>
+<div class="container" >
+    <input class="form-control" type="text" placeholder="Search Appointment" [(ngModel)]="medSearch" >
+    <br>
+    <div class="row" >
+      <div class="col-3" style="padding:1%;" *ngFor="let med of medicines | appPipe : medSearch">
+          <div class="card border-danger  w-80" >
+              <div class="card-body" style="padding:10%;">
+                <h5 class="card-title text-center">{{ med.name }}</h5>
+                <br>
+                <span class="card-text"> <b>Price :</b> {{med.price}}</span>
+                <p class="float-right"> <b>Quantity :</b> {{med.quantity}}</p>
+                <br><br>
+                <a href="##" class="btn btn-success">Update</a>
+              </div>
+            </div>
+      </div>
+    </div>
+</div>
