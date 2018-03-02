@@ -1,0 +1,48 @@
+<div class="container" style="margin-top:8%;" [@moveIn]="state" *ngIf="!show" >
+    <input class="form-control" type="text" placeholder="Search user" [(ngModel)]="userSearch" >
+    <br>
+  <div style="padding:1%;" *ngFor="let user of Users | appPipe : userSearch | paginate: { itemsPerPage: 10, currentPage: p }; let i=index"> 
+    <div class="card" >
+        <div class="card-body">
+            <i class="material-icons">account_circle</i>
+            <b>{{ user.name }}</b>
+            <button class="btn float-right default-color" (click)="getDetails(user.id)" >Details</button>
+           <p class="text-left"><b>Blood Group </b> : {{ user.blood }}</p>
+           <span class="text-center"> <b>Mobile </b> :  {{ user.mobile }}</span>
+          
+        </div>
+    </div>
+  </div>
+  <br>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>   
+</div>
+
+<div class="container" *ngIf="show" style="margin-top:10%;" [@fallIn]="state" >
+  <div class="card">
+    <div class="card-body" *ngIf="!message">
+      <h4 class="text-center"><b> {{ name }} </b></h4> <button class="btn float-right btn-danger" (click)="ShowHide()">Close</button>
+        <br><br>
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <td>Medical Issue</td>
+            <td>Issue Type</td>
+            <td>Date</td>
+            <td>Time</td>  
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of userDetail">
+            <td> {{ user.medical_issue }} </td>
+            <td> {{ user.issue_type }} </td>
+            <td> {{ user.date }} </td>
+            <td> {{ user.time }} </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card-body" *ngIf="message">
+      <h3 class="text-center">No details to show</h3>
+    </div>
+  </div>
+</div>

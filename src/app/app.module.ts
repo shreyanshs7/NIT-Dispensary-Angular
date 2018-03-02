@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppServiceService } from './app-service.service';
 import { AppComponent } from './app.component';
@@ -10,8 +10,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppPipePipe } from './pipes/app-pipe.pipe';
 import { FormsModule } from '@angular/forms';
 import { InventoryComponent } from './inventory/inventory.component';
-import {NgxPaginationModule} from 'ngx-pagination';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { InventoryServiceService } from './services/inventory-service.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { UsersComponent } from './users/users.component';
+import { UserService } from '../app/services/user.service';
 
 
 const appRoutes: Routes = [
@@ -22,6 +26,10 @@ const appRoutes: Routes = [
   {
     path : 'inventory',
     component : InventoryComponent
+  },
+  {
+    path : 'users',
+    component : UsersComponent
   }
 ];
 
@@ -31,10 +39,13 @@ const appRoutes: Routes = [
     NavComponent,
     AppointmentComponent,
     AppPipePipe,
-    InventoryComponent
+    InventoryComponent,
+    UsersComponent
   ],
   imports: [
+    MDBBootstrapModule.forRoot(),
     BrowserModule,
+    BrowserAnimationsModule,
     NgxPaginationModule,
     FormsModule,
     RouterModule,
@@ -45,8 +56,9 @@ const appRoutes: Routes = [
       { enableTracing: true } // <-- debugging purposes only
     )
   ],
+  schemas: [ NO_ERRORS_SCHEMA ],
   exports : [RouterModule],
-  providers: [AppServiceService,InventoryServiceService],
+  providers: [AppServiceService,InventoryServiceService,UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

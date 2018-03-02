@@ -1,8 +1,6 @@
-<br>
-<br>
 
 
-<div class="container" *ngIf="show">
+<div class="container"  style="margin-top:8%;" [@moveIn]="state">
   
     <input class="form-control" type="text" placeholder="Search Appointment" [(ngModel)]="appSearch" >
 
@@ -29,37 +27,39 @@
                 <td>Yes</td>
             </div>
             <ng-template #no> <td>No</td> </ng-template>
-            <td><button type="button" class="btn btn-info" (click)="getAppDetails(app.id)" >Info</button></td>
+            <td><button type="button" class="btn  default-color" data-toggle="modal" data-target="#infoModal" (click)="getAppDetails(app.id)" >Info</button></td>
           </tr>
         </tbody>
        
       </table>
       <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>
-<div class="container">
-    <div *ngIf="!show">
-            <div class="jumbotron" style="padding-left:25%;padding-right:25%;">
-                    <h3 class="text-center">{{ appDetail.name }}</h3>
-                    <hr>
-                    <br>
-                    <div >
-                        <b>Issue Type :</b> {{ appDetail.issue_type }}
-                        <span class="float-right"><b>Medical Issue :</b> {{ appDetail.medical_issue }}</span> 
-                        <br><br>
-                        <b>Date :</b> {{ appDetail.date }}
-                        <span class="float-right"><b>Time :</b>{{ appDetail.time }}</span> 
-                    </div>
-
-                
+<div class="container" >
+  <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <p class="modal-title text-center h3" id="exampleModalLabel">{{ appDetail.name }}</p>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                  <div >
+                      <b>Issue Type :</b> {{ appDetail.issue_type }}
+                      <span class="float-right"><b>Medical Issue :</b> {{ appDetail.medical_issue }}</span> 
+                      <br><br>
+                      <b>Date :</b> {{ appDetail.date }}
+                      <span class="float-right"><b>Time :</b>{{ appDetail.time }}</span> 
+                  </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn danger-color-dark" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary float-right" (click)="markTreated(appDetail.id)" >Mark as treated</button>
+              </div>
             </div>
-            <button type="button" class="btn btn-info text-left" (click)="showAppointments()" >Back</button>
-            <button type="button" class="btn btn-warning float-right" (click)="markTreated(appDetail.id)" >Mark as treated</button>
-    </div>
-
-<br>
-<div class="alert alert-success alert-dismissible fade show text-center" role="alert" *ngIf="alertShow" data-auto-dismiss="2000">
-        <h4>{{ alertMessage.message }}</h4>
-      </div>
+          </div>
+        </div>
 </div>
 
 

@@ -2,14 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { AppServiceService } from '../app-service.service';
 import 'rxjs/add/operator/map';
 import { HttpClient } from '@angular/common/http';
+import { moveIn , fallIn ,moveInLeft} from '../animations/router.animations';
 
 @Component({
   selector: 'app-appointment',
   templateUrl: './appointment.component.html',
-  styleUrls: ['./appointment.component.css']
+  styleUrls: ['./appointment.component.css'],
+  animations: [moveIn(), fallIn(),moveInLeft()],
+  //host: {'[@moveIn]': ''}
 })
 export class AppointmentComponent implements OnInit {
-
+  state: string = '';
   public appointments: Array<any> = [];
 
   public appDetail : Array<any> = [];
@@ -17,7 +20,7 @@ export class AppointmentComponent implements OnInit {
   alertMessage : Array<any> = [];
   alertShow : boolean = false;
   p : number = 1;
-  show:boolean = true;
+  
 
   constructor(private service: AppServiceService) { }
 
@@ -49,7 +52,7 @@ export class AppointmentComponent implements OnInit {
   }
 
   showAppointments(){
-    this.show = !this.show;
+    
   }
 
  public getAppDetails(id:number){
@@ -64,7 +67,7 @@ export class AppointmentComponent implements OnInit {
     }
     
   );
-  this.show = !this.show;
+  
   
  }
 

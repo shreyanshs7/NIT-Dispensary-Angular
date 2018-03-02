@@ -1,16 +1,23 @@
-<ul class="nav justify-content-center nav-fill" style="margin-top:10px;">
-    <li class="nav-item">
-      <a class="nav-link" routerLink="/" routerLinkActive="active">Appointments</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" routerLink="/inventory" routerLinkActive="active">Inventory</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Users</a>
-    </li>
-    <li class="nav-item ">
-      <a class="nav-link" href="#">Logout</a>
-    </li>
-  </ul>
 
-  <hr>
+    
+    <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark unique-color fixed-top scrolling-navbar" >
+      <logo>
+          <a class="navbar-brand white-text font-weight-bold">NIT Care</a>
+      </logo>
+      <links>
+          <ul class="navbar-nav float-right" style="padding-left:30%;">
+              <li class="nav-item" routerLinkActive="active font-weight-bold" [routerLinkActiveOptions]="{exact:true}" >
+                  <a class="nav-link waves-light " routerLink="/"   mdbRippleRadius>Appointments <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item" routerLinkActive="active font-weight-bold">
+                  <a class="nav-link waves-light"  routerLink="/inventory"  mdbRippleRadius>Inventory</a>
+              </li>
+              <li class="nav-item" routerLinkActive="active font-weight-bold">
+                  <a class="nav-link waves-light" routerLink="/users" mdbRippleRadius>Users</a>
+              </li>
+              <li class="nav-item float-right">
+                  <a class="nav-link " >Logout</a>
+              </li>
+          </ul>
+      </links>
+      
