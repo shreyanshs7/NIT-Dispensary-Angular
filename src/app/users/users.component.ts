@@ -11,9 +11,9 @@ import { moveIn , fallIn ,moveInLeft} from '../animations/router.animations';
 export class UsersComponent implements OnInit {
 
   state: string = '';
-  public Users: Array<any> = [];
+  public Users  = [];
   p : number = 1;
-  public userDetail: Array<any> = [];
+  public userDetail  = [];
   show : boolean = false;
   name : string = "";
   message: boolean = false;

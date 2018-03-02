@@ -13,11 +13,11 @@ import { moveIn , fallIn ,moveInLeft} from '../animations/router.animations';
 })
 export class AppointmentComponent implements OnInit {
   state: string = '';
-  public appointments: Array<any> = [];
+  public appointments = [];
 
-  public appDetail : Array<any> = [];
+  public appDetail  = [];
 
-  alertMessage : Array<any> = [];
+  alertMessage  = [];
   alertShow : boolean = false;
   p : number = 1;
   
