@@ -16,7 +16,7 @@ export class AppointmentComponent implements OnInit {
   public appointments = [];
 
   public appDetail  = [];
-
+  appSearch:string = "";
   alertMessage  = [];
   alertShow : boolean = false;
   p : number = 1;

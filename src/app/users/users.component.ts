@@ -17,6 +17,7 @@ export class UsersComponent implements OnInit {
   show : boolean = false;
   name : string = "";
   message: boolean = false;
+  userSearch : string = "";
 
   constructor(private users: UserService) { }
 

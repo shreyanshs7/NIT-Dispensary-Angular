@@ -13,7 +13,7 @@ import { moveIn , fallIn ,moveInLeft} from '../animations/router.animations';
 export class InventoryComponent implements OnInit {
   state: string = '';
   public medicines  = [];
-
+  medSearch: string = "";
   public medicine  = [] ;
 
   medId:number;
