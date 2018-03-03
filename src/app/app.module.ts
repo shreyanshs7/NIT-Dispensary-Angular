@@ -5,7 +5,7 @@ import { AppServiceService } from './app-service.service';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { AppointmentComponent } from './appointment/appointment.component';
-import { HttpModule } from '@angular/http';
+import { HttpModule ,BrowserXhr } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { AppPipePipe } from './pipes/app-pipe.pipe';
 import { FormsModule } from '@angular/forms';
@@ -16,6 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { UsersComponent } from './users/users.component';
 import { UserService } from '../app/services/user.service';
+import { CustExtBrowserXhr } from '../app/cors';
 
 
 const appRoutes: Routes = [
@@ -58,7 +59,7 @@ const appRoutes: Routes = [
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   exports : [RouterModule],
-  providers: [AppServiceService,InventoryServiceService,UserService],
+  providers: [AppServiceService,InventoryServiceService,UserService ,{ provide : BrowserXhr, useClass:CustExtBrowserXhr}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

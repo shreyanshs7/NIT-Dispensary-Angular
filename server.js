@@ -7,10 +7,16 @@ const cors = require('express-cors');
 // Serve only the static files form the dist directory
 app.use(express.static(path.join(__dirname) + '/dist'));
 
+var originsList = [
+    'https://nitrr-dispensary.herokuapp.com','http://localhost:4200'
+]
+
 app.use(cors({
-    allowedOrigins: [
-        'http://localhost:4200/', 'https://nitrr-dispensary.herokuapp.com'
-    ]
+    origin : function(origin, callback){
+        var isWhitelisted = originsList.indexOf(origin) !== -1;
+        callback(null, isWhitelisted);
+  },
+  credentials:true
 }));
 
 // Start the app by listening on the default Heroku port
