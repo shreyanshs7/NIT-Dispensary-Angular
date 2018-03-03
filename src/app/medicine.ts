@@ -1,23 +1,21 @@
 import { Time } from "@angular/common";
 
-export class Medicine {
-    constructor(
-        public id:number,
-        public name:string,
-        public price:number,
-        public quantity:number
-    ){}
+export interface Medicine {
+         id:number,
+         name:string,
+         price:number,
+         quantity:number
+   
 }
 
-export class Appointment {
+export interface Appointment {
 
-    constructor(
-        public id:number,
-        public name:string,
-        public issue_type:string,
-        public medical_issue:string,
-        public date:Date,
-        public time:Time
-    ){}
+         id:number,
+         name:string,
+         issue_type:string,
+         medical_issue:string,
+         date:Date,
+         time:Time
+
 
 }
