@@ -3,6 +3,7 @@ import { AppServiceService } from '../app-service.service';
 import 'rxjs/add/operator/map';
 import { HttpClient } from '@angular/common/http';
 import { moveIn , fallIn ,moveInLeft} from '../animations/router.animations';
+import { Appointment } from '../medicine';
 
 @Component({
   selector: 'app-appointment',
@@ -13,9 +14,9 @@ import { moveIn , fallIn ,moveInLeft} from '../animations/router.animations';
 })
 export class AppointmentComponent implements OnInit {
   state: string = '';
-  public appointments = [];
+  public appointments:Appointment[] = [];
 
-  public appDetail  = [];
+  public appDetail:Appointment[]  = [];
   appSearch:string = "";
   alertMessage  = [];
   alertShow : boolean = false;

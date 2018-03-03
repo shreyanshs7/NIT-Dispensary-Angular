@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { InventoryServiceService } from '../services/inventory-service.service';
 import { moveIn , fallIn ,moveInLeft} from '../animations/router.animations';
-
+import { Medicine } from '../medicine';
 
 @Component({
   selector: 'app-inventory',
@@ -12,9 +12,9 @@ import { moveIn , fallIn ,moveInLeft} from '../animations/router.animations';
 })
 export class InventoryComponent implements OnInit {
   state: string = '';
-  public medicines  = [];
+  public medicines:Medicine[] = [];
   medSearch: string = "";
-  public medicine  = [] ;
+  public medicine:Medicine[]  = [] ;
 
   medId:number;
 
