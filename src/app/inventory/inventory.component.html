@@ -6,15 +6,15 @@
       <div class="col-3" style="padding:2%;" *ngFor="let med of medicines | appPipe : medSearch">
           <div class="card transparent border border-primary  w-80 hoverable" style="padding:5%;">
               <div class="card-body" style="padding:10%;">
-                <h4 class="card-title text-center">{{ med.name }}</h4>
+                <h4 class="card-title text-center">{{ med['name'] }}</h4>
                 <hr>
                 <br>
                 <span class=""> 
-                  <b>Price :</b> {{med.price}}
-                <p class="float-right"> <b>Quantity :</b> {{med.quantity}}</p>
+                  <b>Price :</b> {{med['price']}}
+                <p class="float-right"> <b>Quantity :</b> {{med['quantity']}}</p>
               </span>
                 <br><br>
-                <a  class="btn warning-color-dark" data-toggle="modal" data-target="#exampleModalCenter" (click)="editMedicine(med.id)" >Edit</a>
+                <a  class="btn warning-color-dark" data-toggle="modal" data-target="#exampleModalCenter" (click)="editMedicine(med['id'])" >Edit</a>
               </div>
             </div>
       </div>
@@ -25,7 +25,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <p class="modal-title text-center h3" id="exampleModalLongTitle">{{ medicine.name }}</p>
+        <p class="modal-title text-center h3" id="exampleModalLongTitle">{{ medicine['name'] }}</p>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -35,9 +35,9 @@
             <div class="container">
               
                 
-                  <b> Price:</b> <input value="{{medicine.price}}" name="price" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" ngModel>
+                  <b> Price:</b> <input value="{{medicine['price']}}" name="price" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" ngModel>
                   <br>
-                  <b> Quantity:</b> <input value="{{medicine.quantity}}" name="quantity" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" ngModel>
+                  <b> Quantity:</b> <input value="{{medicine['quantity']}}" name="quantity" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" ngModel>
               
                 
             </div>  

@@ -20,14 +20,14 @@
         <tbody>
           <tr *ngFor="let app of appointments | appPipe: appSearch | paginate: { itemsPerPage: 10, currentPage: p }; let i=index ">
             <td>{{ i+1 }}</td>
-            <td>{{ app.name }}</td>
-            <td>{{ app.medical_issue }}</td>
-            <td> {{ app.issue_type }} </td>
+            <td>{{ app['name'] }}</td>
+            <td>{{ app['medical_issue'] }}</td>
+            <td> {{ app['issue_type'] }} </td>
             <div *ngIf="app.treated; else no">
                 <td>Yes</td>
             </div>
             <ng-template #no> <td>No</td> </ng-template>
-            <td><button type="button" class="btn  default-color" data-toggle="modal" data-target="#infoModal" (click)="getAppDetails(app.id)" >Info</button></td>
+            <td><button type="button" class="btn  default-color" data-toggle="modal" data-target="#infoModal" (click)="getAppDetails(app['id'])" >Info</button></td>
           </tr>
         </tbody>
        
@@ -39,23 +39,23 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <p class="modal-title text-center h3" id="exampleModalLabel">{{ appDetail.name }}</p>
+                <p class="modal-title text-center h3" id="exampleModalLabel">{{ appDetail['name'] }}</p>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
                   <div >
-                      <b>Issue Type :</b> {{ appDetail.issue_type }}
-                      <span class="float-right"><b>Medical Issue :</b> {{ appDetail.medical_issue }}</span> 
+                      <b>Issue Type :</b> {{ appDetail['issue_type'] }}
+                      <span class="float-right"><b>Medical Issue :</b> {{ appDetail['medical_issue'] }}</span> 
                       <br><br>
-                      <b>Date :</b> {{ appDetail.date }}
-                      <span class="float-right"><b>Time :</b>{{ appDetail.time }}</span> 
+                      <b>Date :</b> {{ appDetail['date'] }}
+                      <span class="float-right"><b>Time :</b>{{ appDetail['time'] }}</span> 
                   </div>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn danger-color-dark" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary float-right" (click)="markTreated(appDetail.id)" >Mark as treated</button>
+                <button type="button" class="btn btn-primary float-right" (click)="markTreated(appDetail['id'])" >Mark as treated</button>
               </div>
             </div>
           </div>
