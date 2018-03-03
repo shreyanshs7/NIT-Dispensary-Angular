@@ -16,8 +16,10 @@
   "dependencies": {
     "@angular/animations": "^5.2.0",
     "@angular/cdk": "^5.0.4",
+    "@angular/cli": "^6.0.0-beta.4",
     "@angular/common": "^5.1.3",
     "@angular/compiler": "^5.1.3",
+    "@angular/compiler-cli": "^5.0.0",
     "@angular/core": "^5.1.3",
     "@angular/forms": "^5.1.3",
     "@angular/http": "^5.0.0",
@@ -29,16 +31,16 @@
     "bootstrap": "^4.0.0-alpha.6",
     "bootstrap-auto-dismiss-alert": "^1.0.2",
     "core-js": "^2.4.1",
+    "cors": "^2.8.4",
     "express": "^4.16.2",
+    "express-cors": "0.0.3",
     "font-awesome": "^4.7.0",
     "hammerjs": "^2.0.8",
     "ngx-pagination": "^3.0.3",
-    "rxjs": "^5.5.2",
-    "zone.js": "^0.8.14",
-    "@angular/cli": "^6.0.0-beta.4",
-    "@angular/compiler-cli": "^5.0.0",
     "path": "*",
-    "typescript": "^2.8.0-dev.20180302"
+    "rxjs": "^5.5.2",
+    "typescript": "^2.8.0-dev.20180302",
+    "zone.js": "^0.8.14"
   },
   "devDependencies": {
     "@angular/cli": "^6.0.0-beta.4",
